@@ -4,11 +4,10 @@
 
 NEM faucet for testnet. 
 
-
-using node.js sdk for NEM developpers. You can download it in https://github.com/QuantumMechanics/NEM-sdk.
-
-
-
+## API
+* expressjs
+* using node.js sdk for NEM developpers. You can download it in https://github.com/QuantumMechanics/NEM-sdk.
+* transaction endpoint in http://localhost:2000/transaction
 
 ### `npm install` or `node app.js` 
 Installs all dependencies.<br>
