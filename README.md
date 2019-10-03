@@ -2,6 +2,8 @@
 # NEM FAUCET
 
 
+NEM faucet for testnet. 
+
 
 using node.js sdk for NEM developpers. You can download it in https://github.com/QuantumMechanics/NEM-sdk.
 
