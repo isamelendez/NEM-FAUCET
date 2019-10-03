@@ -23,10 +23,34 @@
     var amount = $('.validate-input input[name="amount"]');
     var email = $('.validate-input input[name="email"]');
     var message = $('.validate-input textarea[name="message"]');
+    var now = new Date();
 
 
     $('.validate-form').on('submit',function(){
         var check = true;
+        if(localStorage.getItem('hour')) {
+            console.log('local', localStorage.getItem('hour'))
+            var then = localStorage.getItem('hour');
+            then = new Date(then);
+
+            var diffDays = then.getDate() - now.getDate(); 
+            if($(to).val().trim() == ''){
+                showValidate(to);
+                check=false;
+                return check;
+            }
+
+            if(diffDays < 1){
+                alert("try tomorrow")
+                check=false;
+                return check;
+            }
+            else if(diffDays >= 1) {
+                localStorage.setItem('hour', now);
+                window.location.reload();
+             }
+     
+        }
 
         if($(to).val().trim() == ''){
             showValidate(to);
@@ -35,8 +59,11 @@
         }
 
         else {
-           window.location.reload();
-        }
+            localStorage.setItem('hour', now);
+            window.location.reload();
+         }
+
+
 
     });
 

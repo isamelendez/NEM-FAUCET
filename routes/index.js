@@ -12,8 +12,8 @@ router.get('/transaction', function(req, res, next) {
   let to = req.query.to;
   let amount = req.query.amount;
   let message = req.query.message;
-  let faucetOwnerPassword = ''; //Your password here
-  let faucetOwnerPrivateKey = ''; //Your private key here
+  let faucetOwnerPassword = 'bichomaster1'; //Your password here
+  let faucetOwnerPrivateKey = 'a199236c3b1cecd827e3eb1b33bd24d7dd41e9d8827c9189360cf37f6fa25ffd'; //Your private key here
 
   let endpoint = nem.model.objects.create('endpoint')(nem.model.nodes.defaultTestnet, nem.model.nodes.defaultPort);
   let common = nem.model.objects.create('common')(faucetOwnerPassword, faucetOwnerPrivateKey);
@@ -27,14 +27,14 @@ router.get('/transaction', function(req, res, next) {
    
     console.log(preparedTransaction);
    
-    nem.model.transactions.send(common, preparedTransaction, endpoint).then(function(res){
-        console.log(res);
+    nem.model.transactions.send(common, preparedTransaction, endpoint).then(function(response){
+        res.send(response);
     }, function(err){
-        console.log(err);
+       res.send(err);
     });
 
   }, function (err) {
-      console.error(err);
+      res.send(err);
   });
 });
 
